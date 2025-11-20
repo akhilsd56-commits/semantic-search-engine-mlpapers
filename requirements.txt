@@ -1,0 +1,5 @@
+django==4.2
+djangorestframework==3.14.0
+sentence-transformers==2.2.2
+numpy
+pandas
