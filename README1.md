@@ -1,77 +1,48 @@
-# Semantic Search Engine for Research Papers  
+Semantic Search Engine for Research Papers
 Sentence Transformers + FAISS + Django REST
 
-This project is a semantic search engine for research papers.  
-Instead of relying on keyword matching, it uses vector embeddings to find papers that are *semantically* similar to a user query.
+This project is a semantic search engine for research papers.
+Instead of relying on keyword matching, it uses vector embeddings to find papers that are semantically similar to a user query.
 
-The focus of this project is building a **fast, practical search backend** with clean APIs and a simple, scalable design.
+The focus of this project is building a fast, practical search backend with clean APIs and a simple, scalable design.
 
----
-
-## Problem Statement
-
-Traditional keyword-based search often fails when the wording does not exactly match the query.  
+Problem Statement
+Traditional keyword-based search often fails when the wording does not exactly match the query.
 Synonyms, paraphrasing, and contextual meaning are usually missed.
 
 This system solves that by:
-- Encoding research paper abstracts into dense vector embeddings
-- Performing similarity search using FAISS
-- Returning the most relevant results based on semantic similarity
 
-### Goals
-- Accurate semantic matching beyond keywords  
-- Sub-100ms query latency  
-- Simple and extensible REST APIs  
-- A clean embedding and indexing pipeline  
+Encoding research paper abstracts into dense vector embeddings
+Performing similarity search using FAISS
+Returning the most relevant results based on semantic similarity
+Goals
+Accurate semantic matching beyond keywords
+Sub-100ms query latency
+Simple and extensible REST APIs
+A clean embedding and indexing pipeline
+High-Level Architecture
+Client | v Django REST API | v Sentence Transformer Encoder | v FAISS Vector Index | v Top-K Ranked Results
 
----
-
-## High-Level Architecture
-Client
-|
-v
-Django REST API
-|
-v
-Sentence Transformer Encoder
-|
-v
-FAISS Vector Index
-|
-v
-Top-K Ranked Results
-
-### Components
-- **API Layer**: Django REST Framework handles incoming search requests  
-- **Embedding Layer**: Sentence Transformers convert text into dense vectors  
-- **Indexing Layer**: FAISS performs fast nearest-neighbor search  
-- **Ranking Layer**: Results are sorted by similarity score  
-
----
-
-## Key Features
-
-- Semantic embeddings using Sentence Transformers  
-- FAISS-based vector similarity search  
-- REST API for easy integration  
-- Modular scripts for ingestion and index creation  
-- < 100ms search latency on 10K+ documents  
-- Works with FAISS CPU on Windows  
-
----
-
-## Tech Stack
-
-- **Language**: Python 3.10  
-- **API Framework**: Django, Django REST Framework  
-- **Embeddings**: Sentence Transformers  
-- **Vector Search**: FAISS (CPU)  
-- **Data Processing**: NumPy, Pandas  
-
-> Note: FAISS does not support Python 3.13.  
-> This project is tested with **Python 3.10**.
-
----
+Components
+API Layer: Django REST Framework handles incoming search requests
+Embedding Layer: Sentence Transformers convert text into dense vectors
+Indexing Layer: FAISS performs fast nearest-neighbor search
+Ranking Layer: Results are sorted by similarity score
+Key Features
+Semantic embeddings using Sentence Transformers
+FAISS-based vector similarity search
+REST API for easy integration
+Modular scripts for ingestion and index creation
+< 100ms search latency on 10K+ documents
+Works with FAISS CPU on Windows
+Tech Stack
+Language: Python 3.10
+API Framework: Django, Django REST Framework
+Embeddings: Sentence Transformers
+Vector Search: FAISS (CPU)
+Data Processing: NumPy, Pandas
+Note: FAISS does not support Python 3.13.
+This project is tested with Python 3.10.
 
 ## API Design
 
